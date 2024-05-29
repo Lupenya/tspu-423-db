@@ -29,7 +29,13 @@ def get_faculty_by_name(name):
 
     return cursor.fetchall()
 
-
+def add_users(pk):
+    cursor.execute(f'''
+        INSERT INTO groups (last_name, first_name, fathers_name, birth_date, email, phone_number, form_of_education, status, password, group_id) VALUES 
+            ("Иванов", "Иван", "Иванович", '2000-01-01', "ivan@gmail.com", "+79234091234", "очная", "", "12345", {pk}),
+            ("Петров", "Петр", "Петрович", '2001-03-03', "petr@mail.ru", "+79234085632", "заочная", "", "154321", {pk}),
+            ("Сидоров", "Олег", "Олегович", '1999-09-09', "oleg@yandex.ru", "+79234068796", "очно-заочная", "", "13542", {pk}),
+        ''')
 
 
 groups = [
@@ -71,6 +77,7 @@ def add_groups():
 
 add_groups()
 
+add_users()
 # truncate_faculties()
 # add_faculties()
 
