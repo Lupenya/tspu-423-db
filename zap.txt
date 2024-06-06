@@ -1,0 +1,4 @@
+SELECT DISTINCT employees.first_name, employees.last_name FROM employees
+JOIN dept_manager ON employees.emp_no = dept_manager.emp_no
+JOIN salaries ON dept_manager.emp_no = salaries.emp_no
+WHERE salary > 50000
